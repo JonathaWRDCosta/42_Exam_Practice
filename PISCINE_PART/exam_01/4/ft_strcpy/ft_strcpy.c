@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_first_param.c                                  :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonatha <jonatha@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 21:05:18 by jonatha           #+#    #+#             */
-/*   Updated: 2026/09/15 14:05:45 by jonatha          ###   ########.fr       */
+/*   Created: 2026/09/15 14:45:19 by jonatha           #+#    #+#             */
+/*   Updated: 2026/09/15 14:56:24 by jonatha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-int main(int argc, char **argv)
+char    *ft_strcpy(char *s1, char *s2)
 {
-    int i = 0;
-    
-    if (argc == 1)
-        return(write(1, "\n", 1));
-    while (argv[1][i])
+    char *start = s1;
+    while (*s2)
     {
-        write(1, &argv[1][i], 1);
-        i++;
+        *s1 = *s2;
+        s1++;
+        s2++;
     }
-    write(1, "\n", 1);
-    return(0);
+    *s1 = '\0';
+    return(start);
+}
+
+int main(void)
+{
+    char str[] = "Hello";
+    char str2[] = "123";
+
+    printf("%s\n", ft_strcpy(str2, str));
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_first_param.c                                  :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonatha <jonatha@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 21:05:18 by jonatha           #+#    #+#             */
-/*   Updated: 2026/09/15 14:05:45 by jonatha          ###   ########.fr       */
+/*   Created: 2026/09/17 15:19:23 by jonatha           #+#    #+#             */
+/*   Updated: 2026/09/17 15:31:15 by jonatha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,21 @@
 int main(int argc, char **argv)
 {
     int i = 0;
-    
-    if (argc == 1)
+    int count = 0;
+
+    if (argc != 2)
         return(write(1, "\n", 1));
-    while (argv[1][i])
+    while(argv[1][i])
     {
-        write(1, &argv[1][i], 1);
+        if (argv[1][i] >= 'a' && argv[1][i] <= 'z')
+            count = argv[1][i] - 'a' + 1;
+        else if (argv[1][i] >= 'A' && argv[1][i] <= 'Z')
+            count = argv[1][i] - 'A' + 1;
+        else
+            count = 1;
+        while (count--)
+            write(1, &argv[1][i], 1);
         i++;
     }
-    write(1, "\n", 1);
-    return(0);
+    return(write(1, "\n", 1));
 }

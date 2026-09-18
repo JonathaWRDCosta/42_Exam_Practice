@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_first_param.c                                  :+:      :+:    :+:   */
+/*   repeat_alpha.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonatha <jonatha@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 21:05:18 by jonatha           #+#    #+#             */
-/*   Updated: 2026/09/15 14:05:45 by jonatha          ###   ########.fr       */
+/*   Created: 2026/09/15 14:58:09 by jonatha           #+#    #+#             */
+/*   Updated: 2026/09/15 15:47:52 by jonatha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(int argc, char **argv)
+void	repeat_alpha(char *str)
 {
-    int i = 0;
-    
-    if (argc == 1)
-        return(write(1, "\n", 1));
-    while (argv[1][i])
+    int count = 0;
+
+    while (*str)
     {
-        write(1, &argv[1][i], 1);
-        i++;
+        if (*str >= 97 && *str <= 122)
+            count = *str - 97 + 1;
+        else if (*str >= 65 && *str <= 90)
+            count = *str - 65 + 1;
+        else
+            count = 1;
+
+        while (count > 0)
+        {
+            write(1, str, 1);
+            count--;
+        }
+        str++;
     }
-    write(1, "\n", 1);
+}
+
+int main(void)
+{
+    repeat_alpha("abc");
     return(0);
 }

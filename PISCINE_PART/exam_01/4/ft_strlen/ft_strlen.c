@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   aff_first_param.c                                  :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jonatha <jonatha@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/10 21:05:18 by jonatha           #+#    #+#             */
-/*   Updated: 2026/09/15 14:05:45 by jonatha          ###   ########.fr       */
+/*   Created: 2026/09/15 14:56:45 by jonatha           #+#    #+#             */
+/*   Updated: 2026/09/15 14:57:27 by jonatha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int main(int argc, char **argv)
+int	ft_strlen(char *str)
 {
     int i = 0;
-    
-    if (argc == 1)
-        return(write(1, "\n", 1));
-    while (argv[1][i])
+    while (*str)
     {
-        write(1, &argv[1][i], 1);
         i++;
+        str++;
     }
-    write(1, "\n", 1);
-    return(0);
+    return(i);
 }

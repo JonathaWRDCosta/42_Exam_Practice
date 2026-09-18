@@ -6,7 +6,7 @@
 /*   By: jonatha <jonatha@student.42porto.com>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/10 20:54:29 by jonatha           #+#    #+#             */
-/*   Updated: 2026/09/10 21:04:47 by jonatha          ###   ########.fr       */
+/*   Updated: 2026/09/15 13:47:46 by jonatha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void maff_alpha(void)
 {
     int i = 97;
-    while (i <= 122)
+    while(i <= 122)
     {
         if (i % 2 == 0)
         {
@@ -23,11 +23,9 @@ void maff_alpha(void)
             write(1, &i, 1);
             i = i + 32;
         }
-        else
-            write(1, &i, 1);
+        write(1, &i, 1);
         i++;
     }
-    write(1, "\n", 1);
 }
 
 int main(void)
